@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>One Hundred</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+    <link rel="icon" href="favicon.png">
+    <style>
+        label {
+            display: block;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <form action="page.html" method="post" id="myForm">
+        <div class="percentContainer">
+            <label>
+                Percent A:
+                <input type="number" name="a" min="0" max="100" placeholder="0" />
+            </label>
+            <label>
+                Percent B:
+                <input type="number" name="b" min="0" max="100" placeholder="0" />
+            </label>
+            <label>
+                Percent C:
+                <input type="number" name="c" min="0" max="100" placeholder="0" />
+            </label>
+            <label>
+                Percent D:
+                <input type="number" name="d" min="0" max="100" placeholder="0" />
+            </label>
+            <label>
+                Percent E:
+                <input type="text" value="rogue text box" />
+            </label>
+        </div>
+        <input type="submit" value="Submit" />
+    </form>
+
+    <script src="index.js"></script>
+    <script>
+        const form = document.getElementById('myForm');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const inputs = document.querySelector('.percentContainer').getElementsByTagName('input');
+            const validateOneHundred = isOneHundred(inputs);
+
+            const validateOneHundredJQuery = isOneHundredJQuery(inputs);
+            
+            console.log(`The sum of your input values ${validateOneHundred ? 'does' : 'does not'} add up to 100.`);
+            console.log(`jQuery also says that it ${validateOneHundredJQuery ? 'does' : 'does not'} add up.`);
+        });
+    </script>
+</body>
+
+</html>
