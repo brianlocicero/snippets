@@ -13,12 +13,13 @@ const isOneHundred = (inputs) => {
     let sum = 0;
     [...inputs].forEach((element) => {
         const itemValue = element.value && Number(element.value); // value (string) to true number
-        if (!isNaN(itemValue)) sum += itemValue; // make sure it's *really* a number. if so, add it to sum
+        if (!isNaN(itemValue)) sum += itemValue; // final check, then add to sum
     });
     if (sum === 100) return true;
     return false;
 }
 
+// jquery version
 const isOneHundredJQuery = (inputs) => {
     let sum = 0;
     $.each(inputs, function (_i, item) {
