@@ -47,13 +47,14 @@
         const form = document.getElementById('myForm');
 
         form.addEventListener('submit', (event) => {
+            const percentage = 100;
             event.preventDefault();
             const inputs = document.querySelector('.percentContainer').getElementsByTagName('input');
-            const validateOneHundred = isOneHundred(inputs);
-            const validateOneHundredJQuery = isOneHundredJQuery(inputs);
+            const validateInputsSum = checkInputsSum(inputs, percentage);
+            const validateInputsSumJQuery = checkInputsSumJQuery(inputs, percentage);
             
-            console.log(`The sum of your input values ${validateOneHundred ? 'does' : 'does not'} add up to 100.`);
-            console.log(`jQuery also says that it ${validateOneHundredJQuery ? 'does' : 'does not'} add up.`);
+            console.log(`The sum of your input values ${validateInputsSum ? 'does' : 'does not'} add up to ${percentage}.`);
+            console.log(`jQuery also says that it ${validateInputsSumJQuery ? 'does' : 'does not'} add up to ${percentage}`);
         });
     </script>
 </body>

@@ -2,30 +2,33 @@
  * A function to find if a series of input values equals 100
  *
  * @param {Array, HTMLCollection} inputs - input elements
- * @return {boolean} sum of input values strictly equals 100 or not
+ * @param {Number} amount (optional) the amount or percentage you want 
+ * @return {boolean} sum of input values strictly equals the amount or not
  *
  * @example
  * 
  * const myNumberInputs = document.querySelectorAll('numberInputs');
  * const isHundred(numberInputs);
  */
-const isOneHundred = (inputs) => {
+const checkInputsSum = (inputs, amount) => {
     let sum = 0;
+    const checkAmount = amount || 100;
     [...inputs].forEach((element) => {
         const itemValue = element.value && Number(element.value); // value (string) to true number
-        if (!isNaN(itemValue)) sum += itemValue; // final check, then add to sum
+        if (itemValue && !isNaN(itemValue)) sum += itemValue; // final check, then add to sum
     });
-    if (sum === 100) return true;
+    if (sum === checkAmount) return true;
     return false;
 }
 
 // jquery version
-const isOneHundredJQuery = (inputs) => {
+const checkInputsSumJQuery = (inputs, amount) => {
     let sum = 0;
+    const checkAmount = amount || 100;
     $.each(inputs, function (_i, item) {
         const itemValue = item.value && Number(item.value);
         if ($.isNumeric(itemValue)) sum += itemValue;
     });
-    if (sum === 100) return true;
+    if (sum === checkAmount) return true;
     return false;
 }
