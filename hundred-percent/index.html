@@ -47,8 +47,9 @@
         const form = document.getElementById('myForm');
 
         form.addEventListener('submit', (event) => {
-            const percentage = 100;
             event.preventDefault();
+
+            const percentage = 100;
             const inputs = document.querySelector('.percentContainer').getElementsByTagName('input');
             const validateInputsSum = checkInputsSum(inputs, percentage);
             const validateInputsSumJQuery = checkInputsSumJQuery(inputs, percentage);
